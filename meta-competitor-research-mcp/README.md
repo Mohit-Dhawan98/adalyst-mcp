@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="../TLA Logo.png" alt="Adalyst Logo" width="150"/>
+  <img src="../assets/TLA Logo.png" alt="Adalyst Logo" width="150"/>
   
   # Meta Competitor Research MCP
   
@@ -35,7 +35,7 @@ Get deep insights into your competitors' advertising strategies, creative approa
 ### 🍎 macOS / 🐧 Linux
 ```bash
 # 1. Download this repo
-git clone https://github.com/adalyst/adalyst-mcp.git
+git clone https://github.com/Mohit-Dhawan98/adalyst-mcp.git
 cd adalyst-mcp/meta-competitor-research-mcp
 
 # 2. Run the installer
@@ -48,7 +48,7 @@ cd adalyst-mcp/meta-competitor-research-mcp
 ### 🪟 Windows  
 ```powershell
 # 1. Download this repo
-git clone https://github.com/adalyst/adalyst-mcp.git
+git clone https://github.com/Mohit-Dhawan98/adalyst-mcp.git
 cd adalyst-mcp/meta-competitor-research-mcp
 
 # 2. Run the installer
@@ -181,7 +181,7 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 ### 2. Setup
 ```bash
 # Clone and enter directory
-git clone https://github.com/adalyst/adalyst-mcp.git  
+git clone https://github.com/Mohit-Dhawan98/adalyst-mcp.git  
 cd adalyst-mcp/meta-competitor-research-mcp
 
 # Create virtual environment
@@ -245,7 +245,7 @@ Add this to your `claude_desktop_config.json`:
 
 ### Still having issues?
 1. Check the full error message
-2. [Open an issue](https://github.com/adalyst/adalyst-mcp/issues) with:
+2. [Open an issue](https://github.com/Mohit-Dhawan98/adalyst-mcp/issues) with:
    - Your operating system
    - Full error message
    - Steps you've tried
@@ -285,8 +285,8 @@ MIT License - See [LICENSE](../LICENSE) for details.
 
 ## 🆘 Support
 
-- 🐛 **Bug reports**: [GitHub Issues](https://github.com/adalyst/adalyst-mcp/issues)
-- 💬 **Questions**: [GitHub Discussions](https://github.com/adalyst/adalyst-mcp/discussions)  
+- 🐛 **Bug reports**: [GitHub Issues](https://github.com/Mohit-Dhawan98/adalyst-mcp/issues)
+- 💬 **Questions**: [GitHub Discussions](https://github.com/Mohit-Dhawan98/adalyst-mcp/discussions)  
 - 📧 **Email**: support@adalyst.ai
 
 ---

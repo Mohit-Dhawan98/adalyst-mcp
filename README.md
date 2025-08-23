@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="TLA Logo.png" alt="Adalyst Logo" width="200"/>
+  <img src="assets/TLA Logo.png" alt="Adalyst Logo" width="200"/>
   
   # Adalyst MCP Collection
   
@@ -113,8 +113,8 @@ If you prefer manual setup, each tool includes its own detailed installation gui
 - **API errors**: Check your API keys in the `.env` files created by the installer
 
 ### Get Support
-- 🐛 **Bug reports**: [Open an issue](https://github.com/adalyst/adalyst-mcp/issues)
-- 💬 **Questions**: [Start a discussion](https://github.com/adalyst/adalyst-mcp/discussions)
+- 🐛 **Bug reports**: [Open an issue](https://github.com/Mohit-Dhawan98/adalyst-mcp/issues)
+- 💬 **Questions**: [Start a discussion](https://github.com/Mohit-Dhawan98/adalyst-mcp/discussions)
 - 📧 **Email**: support@adalyst.ai
 
 ---
@@ -144,6 +144,6 @@ Built with ❤️ by the Adalyst team using the [Model Context Protocol](https:/
 
 **Ready to get started?**
 
-[🚀 Install Now](#-quick-start-2-minutes) | [📖 Documentation](./docs/) | [💬 Community](https://github.com/adalyst/adalyst-mcp/discussions)
+[🚀 Install Now](#-quick-setup) | [📖 Documentation](./meta-competitor-research-mcp/) | [💬 Community](https://github.com/Mohit-Dhawan98/adalyst-mcp/discussions)
 
 </div>
