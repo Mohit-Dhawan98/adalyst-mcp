@@ -86,9 +86,25 @@ The installer automatically handles:
 
 ---
 
-## 💬 Example Queries
+## 🎯 Professional Research Prompt
 
-Once installed, you can ask Claude things like:
+For the most comprehensive competitive analysis, use this expert-level prompt:
+
+**[📋 Copy Professional Research Prompt](./sample_prompt.md)**
+
+This advanced prompt includes:
+- ✅ **Adaptive decision tree** for different research scenarios
+- ✅ **Systematic methodology** for finding competitor ads  
+- ✅ **Quality standards** for thorough analysis
+- ✅ **Professional output formats** for strategic insights
+
+Simply copy the prompt, fill in your brand/market details, and get institutional-quality competitive intelligence.
+
+---
+
+## 💬 Quick Example Queries
+
+For simple analyses, you can also ask Claude things like:
 
 ### Single Competitor Analysis
 ```
