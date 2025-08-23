@@ -187,15 +187,25 @@ mkdir -p "$SERVER_DIR"
 echo -e "${YELLOW}📥 Downloading server files...${NC}"
 
 # Check if we're in the git repo (development) or downloading from GitHub (production)
-if [[ -f "./meta-competitor-research-mcp/mcp_server.py" ]]; then
-    echo "   Using local files (development mode)"
+if [[ -f "./mcp_server.py" ]]; then
+    echo "   Using local files (running from server directory)"
+    cp -r ./* "$SERVER_DIR/"
+elif [[ -f "./meta-competitor-research-mcp/mcp_server.py" ]]; then
+    echo "   Using local files (running from parent directory)"
     cp -r ./meta-competitor-research-mcp/* "$SERVER_DIR/"
 else
     echo "   Downloading from GitHub..."
-    # For now, create error message since repo doesn't exist yet
-    echo -e "${RED}❌ GitHub repository not yet available${NC}"
-    echo "Please clone the repository and run the installer from the repo directory."
-    exit 1
+    # Download files from GitHub
+    curl -fsSL "https://raw.githubusercontent.com/Mohit-Dhawan98/adalyst-mcp/main/meta-competitor-research-mcp/mcp_server.py" -o "$SERVER_DIR/mcp_server.py"
+    curl -fsSL "https://raw.githubusercontent.com/Mohit-Dhawan98/adalyst-mcp/main/meta-competitor-research-mcp/requirements.txt" -o "$SERVER_DIR/requirements.txt"
+    curl -fsSL "https://raw.githubusercontent.com/Mohit-Dhawan98/adalyst-mcp/main/meta-competitor-research-mcp/.env.template" -o "$SERVER_DIR/.env.template"
+    
+    # Create src directory and download service files
+    mkdir -p "$SERVER_DIR/src/services"
+    curl -fsSL "https://raw.githubusercontent.com/Mohit-Dhawan98/adalyst-mcp/main/meta-competitor-research-mcp/src/services/scrapecreators_service.py" -o "$SERVER_DIR/src/services/scrapecreators_service.py"
+    curl -fsSL "https://raw.githubusercontent.com/Mohit-Dhawan98/adalyst-mcp/main/meta-competitor-research-mcp/src/services/media_cache_service.py" -o "$SERVER_DIR/src/services/media_cache_service.py"
+    curl -fsSL "https://raw.githubusercontent.com/Mohit-Dhawan98/adalyst-mcp/main/meta-competitor-research-mcp/src/services/gemini_service.py" -o "$SERVER_DIR/src/services/gemini_service.py"
+    curl -fsSL "https://raw.githubusercontent.com/Mohit-Dhawan98/adalyst-mcp/main/meta-competitor-research-mcp/src/logger.py" -o "$SERVER_DIR/src/logger.py"
 fi
 
 echo -e "${GREEN}✅ Server files downloaded${NC}"

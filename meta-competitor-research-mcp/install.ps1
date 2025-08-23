@@ -188,12 +188,33 @@ $currentDir = Get-Location
 $localServer = Join-Path $currentDir "mcp_server.py"
 
 if (Test-Path $localServer) {
-    Write-Host "   Using local files (development mode)" -ForegroundColor $Blue
+    Write-Host "   Using local files (running from server directory)" -ForegroundColor $Blue
     Copy-Item -Path ".\*" -Destination $ServerDir -Recurse -Force
 } else {
-    Write-Host "❌ GitHub repository not yet available" -ForegroundColor $Red
-    Write-Host "Please clone the repository and run the installer from the repo directory." -ForegroundColor $Yellow
-    exit 1
+    # Check if running from parent directory
+    $parentServer = Join-Path $currentDir "meta-competitor-research-mcp\mcp_server.py"
+    if (Test-Path $parentServer) {
+        Write-Host "   Using local files (running from parent directory)" -ForegroundColor $Blue
+        Copy-Item -Path ".\meta-competitor-research-mcp\*" -Destination $ServerDir -Recurse -Force
+    } else {
+        Write-Host "   Downloading from GitHub..." -ForegroundColor $Blue
+        
+        # Download main files
+        $baseUrl = "https://raw.githubusercontent.com/Mohit-Dhawan98/adalyst-mcp/main/meta-competitor-research-mcp"
+        Invoke-WebRequest -Uri "$baseUrl/mcp_server.py" -OutFile (Join-Path $ServerDir "mcp_server.py")
+        Invoke-WebRequest -Uri "$baseUrl/requirements.txt" -OutFile (Join-Path $ServerDir "requirements.txt")
+        Invoke-WebRequest -Uri "$baseUrl/.env.template" -OutFile (Join-Path $ServerDir ".env.template")
+        
+        # Create src directory and download service files
+        $srcDir = Join-Path $ServerDir "src"
+        $servicesDir = Join-Path $srcDir "services"
+        New-Item -ItemType Directory -Path $servicesDir -Force | Out-Null
+        
+        Invoke-WebRequest -Uri "$baseUrl/src/services/scrapecreators_service.py" -OutFile (Join-Path $servicesDir "scrapecreators_service.py")
+        Invoke-WebRequest -Uri "$baseUrl/src/services/media_cache_service.py" -OutFile (Join-Path $servicesDir "media_cache_service.py") 
+        Invoke-WebRequest -Uri "$baseUrl/src/services/gemini_service.py" -OutFile (Join-Path $servicesDir "gemini_service.py")
+        Invoke-WebRequest -Uri "$baseUrl/src/logger.py" -OutFile (Join-Path $srcDir "logger.py")
+    }
 }
 
 Write-Host "✅ Server files downloaded" -ForegroundColor $Green
