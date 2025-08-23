@@ -207,7 +207,7 @@ uv venv --python python3.11
 uv pip install -r requirements.txt
 
 # Configure API keys
-cp .env.template .env
+cp env.template .env
 # Edit .env and add your API keys
 ```
 

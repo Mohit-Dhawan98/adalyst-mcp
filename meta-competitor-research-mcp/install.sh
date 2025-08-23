@@ -189,16 +189,21 @@ echo -e "${YELLOW}📥 Downloading server files...${NC}"
 # Check if we're in the git repo (development) or downloading from GitHub (production)
 if [[ -f "./mcp_server.py" ]]; then
     echo "   Using local files (running from server directory)"
-    cp -r ./* "$SERVER_DIR/"
+    # Copy all files including hidden files, excluding problematic directories
+    cp -r . "$SERVER_DIR/"
+    # Remove any nested installation directories that might have been copied
+    rm -rf "$SERVER_DIR/.venv" "$SERVER_DIR/.adalyst-mcp" 2>/dev/null || true
 elif [[ -f "./meta-competitor-research-mcp/mcp_server.py" ]]; then
     echo "   Using local files (running from parent directory)"
-    cp -r ./meta-competitor-research-mcp/* "$SERVER_DIR/"
+    cp -r ./meta-competitor-research-mcp/. "$SERVER_DIR/"
+    # Remove any nested installation directories that might have been copied  
+    rm -rf "$SERVER_DIR/.venv" "$SERVER_DIR/.adalyst-mcp" 2>/dev/null || true
 else
     echo "   Downloading from GitHub..."
     # Download files from GitHub
     curl -fsSL "https://raw.githubusercontent.com/Mohit-Dhawan98/adalyst-mcp/main/meta-competitor-research-mcp/mcp_server.py" -o "$SERVER_DIR/mcp_server.py"
     curl -fsSL "https://raw.githubusercontent.com/Mohit-Dhawan98/adalyst-mcp/main/meta-competitor-research-mcp/requirements.txt" -o "$SERVER_DIR/requirements.txt"
-    curl -fsSL "https://raw.githubusercontent.com/Mohit-Dhawan98/adalyst-mcp/main/meta-competitor-research-mcp/.env.template" -o "$SERVER_DIR/.env.template"
+    curl -fsSL "https://raw.githubusercontent.com/Mohit-Dhawan98/adalyst-mcp/main/meta-competitor-research-mcp/env.template" -o "$SERVER_DIR/env.template"
     
     # Create src directory and download service files
     mkdir -p "$SERVER_DIR/src/services"
@@ -228,7 +233,7 @@ echo -e "${CYAN}========================${NC}"
 echo ""
 
 if [[ ! -f ".env" ]]; then
-    cp .env.template .env
+    cp env.template .env
 fi
 
 echo -e "${BLUE}For Meta Competitor Research, you need:${NC}"

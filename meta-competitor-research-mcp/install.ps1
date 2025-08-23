@@ -203,7 +203,7 @@ if (Test-Path $localServer) {
         $baseUrl = "https://raw.githubusercontent.com/Mohit-Dhawan98/adalyst-mcp/main/meta-competitor-research-mcp"
         Invoke-WebRequest -Uri "$baseUrl/mcp_server.py" -OutFile (Join-Path $ServerDir "mcp_server.py")
         Invoke-WebRequest -Uri "$baseUrl/requirements.txt" -OutFile (Join-Path $ServerDir "requirements.txt")
-        Invoke-WebRequest -Uri "$baseUrl/.env.template" -OutFile (Join-Path $ServerDir ".env.template")
+        Invoke-WebRequest -Uri "$baseUrl/env.template" -OutFile (Join-Path $ServerDir "env.template")
         
         # Create src directory and download service files
         $srcDir = Join-Path $ServerDir "src"
@@ -237,7 +237,7 @@ Write-Host "========================" -ForegroundColor $Cyan
 Write-Host ""
 
 if (-not (Test-Path ".env")) {
-    Copy-Item ".env.template" ".env"
+    Copy-Item "env.template" ".env"
 }
 
 Write-Host "For Meta Competitor Research, you need:" -ForegroundColor $Blue
