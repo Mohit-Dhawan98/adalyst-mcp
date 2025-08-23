@@ -1,6 +1,10 @@
-# Meta Competitor Research MCP
-
-**AI-powered Facebook & Instagram competitor analysis for Claude Desktop** 🕵️‍♂️
+<div align="center">
+  <img src="../TLA Logo.png" alt="Adalyst Logo" width="150"/>
+  
+  # Meta Competitor Research MCP
+  
+  **AI-powered Facebook & Instagram competitor analysis for Claude Desktop** 🕵️‍♂️
+</div>
 
 Get deep insights into your competitors' advertising strategies, creative approaches, and market positioning directly in Claude Desktop. Analyze their campaigns, extract visual elements, and discover what's working in your industry.
 

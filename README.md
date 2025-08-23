@@ -1,6 +1,10 @@
-# Adalyst MCP Collection
-
-**AI-powered tools for competitive analysis and market research** 🚀
+<div align="center">
+  <img src="TLA Logo.png" alt="Adalyst Logo" width="200"/>
+  
+  # Adalyst MCP Collection
+  
+  **AI-powered tools for competitive analysis and market research** 🚀
+</div>
 
 Transform your business intelligence with Claude-powered MCP servers that provide deep insights into competitor strategies, market trends, and advertising intelligence.
 
