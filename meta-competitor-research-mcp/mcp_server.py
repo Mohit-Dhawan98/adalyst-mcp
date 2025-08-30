@@ -411,14 +411,38 @@ def analyze_ad_image(media_urls: Union[str, List[str]], brand_name: Optional[str
         - analysis_instructions: Detailed prompt for objective visual analysis
         - error: Error details if processing failed
     """
-    if not media_url or not media_url.strip():
+    # Handle both single URL and list of URLs
+    if isinstance(media_urls, str):
+        media_url = media_urls
+        if not media_url or not media_url.strip():
+            return {
+                "success": False,
+                "message": "Media URL must be provided and cannot be empty.",
+                "cached": False,
+                "analysis": {},
+                "cache_info": {},
+                "error": "Missing or empty media URL"
+            }
+    elif isinstance(media_urls, list):
+        # For now, handle only the first URL in the list for single image analysis
+        if not media_urls or not media_urls[0] or not media_urls[0].strip():
+            return {
+                "success": False,
+                "message": "Media URL must be provided and cannot be empty.",
+                "cached": False,
+                "analysis": {},
+                "cache_info": {},
+                "error": "Missing or empty media URL"
+            }
+        media_url = media_urls[0]
+    else:
         return {
             "success": False,
-            "message": "Media URL must be provided and cannot be empty.",
+            "message": "Media URLs must be a string or list of strings.",
             "cached": False,
             "analysis": {},
             "cache_info": {},
-            "error": "Missing or empty media URL"
+            "error": "Invalid input type"
         }
     
     try:
